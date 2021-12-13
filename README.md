@@ -70,3 +70,4 @@
 #### 泛型
 
 > typeof toString 检测都是动态 runtime 的时候
+> useState 中可以使用泛型定义初始值
