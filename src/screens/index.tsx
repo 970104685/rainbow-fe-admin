@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import qs from 'qs'
 import { SearchPanel } from 'screens/search-panel'
 import { List } from 'screens/list'
-import { cleanObject, useDebounce } from 'utils'
+import { cleanObject, useDebounce, useMount } from 'utils'
 const apiUrl = process.env.REACT_APP_API_URL
 export const Todo = () => {
   const [users, setUsers] = useState([])
@@ -12,13 +12,13 @@ export const Todo = () => {
     personId: '',
   })
 
-  useEffect(() => {
+  useMount(() => {
     fetch(`${apiUrl}/users`).then(async (res) => {
       if (res.ok) {
         setUsers(await res.json())
       }
     })
-  }, [])
+  })
 
   const debounceValue = useDebounce(param, 2000)
   useEffect(() => {

@@ -45,3 +45,28 @@
   运行mock数据命令:
   yarn mock
 ```
+
+### TS
+
+#### 强类型
+
+1. number 类型
+2. string
+3. array
+4. boolean
+5. 函数
+6. any 任何值 any 是有害的
+7. void 表示函数不返回任何值
+8. object
+9. tuple useState 返回值就是 tuple 是 数量固定, 类型可以各异 版的数组
+10. enum 枚举
+11. null undefined
+12. unknown 使用 any 的时候,可以使用 unknown 是严格版的 any
+13. never
+14. interface
+
+什么时候时候需要声明类型~
+
+#### 泛型
+
+> typeof toString 检测都是动态 runtime 的时候
