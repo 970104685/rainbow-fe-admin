@@ -71,3 +71,5 @@
 
 > typeof toString 检测都是动态 runtime 的时候
 > useState 中可以使用泛型定义初始值
+
+#### 鸭子类型 (duck typing) 面向接口编程 而不是 面向对象编程

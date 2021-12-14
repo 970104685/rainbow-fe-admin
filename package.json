@@ -7,7 +7,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "prepare": "husky install",
-    "mock": "json-server __json_server_mock__/db.json --watch --port=3001"
+    "mock": "json-server __json_server_mock__/db.json --watch --port=3001 --middlewares ./__json_server_mock__/middlewares.js"
   },
   "dependencies": {
     "@babel/core": "7.12.3",
