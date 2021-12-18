@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import qs from 'qs'
 import { SearchPanel } from 'screens/project-list/search-panel'
 import { List } from 'screens/project-list/list'
 import { cleanObject, useDebounce, useMount } from 'utils'
-const apiUrl = process.env.REACT_APP_API_URL
+import { useHttp } from 'utils/http'
+
 export const ProjectListScreen = () => {
   const [users, setUsers] = useState([])
   const [list, setList] = useState([])
@@ -12,23 +12,17 @@ export const ProjectListScreen = () => {
     personId: '',
   })
 
+  const client = useHttp()
+
   useMount(() => {
-    fetch(`${apiUrl}/users`).then(async (res) => {
-      if (res.ok) {
-        setUsers(await res.json())
-      }
-    })
+    client('users').then(setUsers)
   })
 
   const debounceValue = useDebounce(param, 2000)
   useEffect(() => {
-    fetch(
-      `${apiUrl}/projects?${qs.stringify(cleanObject(debounceValue))}`
-    ).then(async (res) => {
-      if (res.ok) {
-        setList(await res.json())
-      }
-    })
+    client('projects', {
+      data: cleanObject(debounceValue),
+    }).then(setList)
   }, [debounceValue])
 
   return (

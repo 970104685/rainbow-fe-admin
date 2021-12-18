@@ -73,3 +73,5 @@
 > useState 中可以使用泛型定义初始值
 
 #### 鸭子类型 (duck typing) 面向接口编程 而不是 面向对象编程
+
+#### 对 fetch 进行封装 并且 分装一个 custom hook
